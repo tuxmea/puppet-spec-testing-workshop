@@ -7,7 +7,7 @@ class testing-workshop (
   file { '/etc/lessrc':
     ensure => present,
     owner  => 'root'
-    source => 'puppet:///modules/frankfurt-workshop/lessrc.${::osfamily}',
+    source => 'puppet:///modules/testing-workshop/lessrc.${::osfamily}',
   }
   if $::validate {
     notify { 'validation enabled': }
