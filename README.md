@@ -47,11 +47,11 @@ Modify spec/spec_helper.rb
       c.manifest_dir = File.join(fixture_path, 'manifests')
     end
 
-Add a first spec test in spec/classes/frankfurt-workshop_spec.rb
+Add a first spec test in spec/classes/testing-workshop_spec.rb
 
-    # spec/classes/frankfurt-workshop_spec.rb
+    # spec/classes/testing-workshop_spec.rb
     require 'spec_helper'
-    describe 'frankfurt-workshop', :type => :class do
+    describe 'testing-workshop', :type => :class do
       context 'it should compile' do
         it { should compile.with_all_deps }
       end
@@ -96,7 +96,7 @@ Depending modules are added to .fixtures.yml file:
     # .fixtures.yml
     fixtures:
       symlinks:
-        'frankfurt-workshop': "#{source_dir}"
+        'testing-workshop': "#{source_dir}"
       repositories:
         'stdlib':
           repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git',
@@ -116,15 +116,15 @@ Install gem using bundler:
 Attention: this one needs a metadata.json file!
 
     {
-      "name": "tuxmea/frankfurt-workshop",
+      "name": "tuxmea/testing-workshop",
       "version": "1.0.0",
-      "author": "frankfurt workshop",
+      "author": "testing workshop",
       "summary": "code for puppet testing workshop",
       "license": "Apache-2.0",
-      "source": "https://github.com/tuxmea/frankfurt-workshop",
-      "project_page": "https://github.com/tuxmea/frankfurt-workshop",
-      "issues_url": "https://github.com/tuxmea/frankfurt-workshop/issues",
-      "tags": ["workshop", "frankfurt", "puppet testing"],
+      "source": "https://github.com/tuxmea/puppet-spec-testing-workshop.git",
+      "project_page": "https://github.com/tuxmea/puppet-spec-testing-workshop.git",
+      "issues_url": "https://github.com/tuxmea/puppet-spec-testing-workshop.git",
+      "tags": ["workshop", "puppet testing"],
       "operatingsystem_support": [
         {
           "operatingsystem":"RedHat",
@@ -150,9 +150,9 @@ Attention: this one needs a metadata.json file!
 
 Now update your rspec code:
 
-    # spec/classes/frankfurt-workshop.rb
+    # spec/classes/testing-workshop.rb
     require 'spec_helper'
-    describe 'frankfurt-workshop', :type => :class do
+    describe 'testing-workshop', :type => :class do
       on_supported_os.each do |os, facts|
         context "it should compile on #{os}" do
           let(:facts) do
@@ -173,9 +173,9 @@ Run beaker integration tests
 
     bundle exec rake beaker
 
-Add tests in spec/acceptance/frankfurt-workshop_spec.rb
+Add tests in spec/acceptance/testing-workshop_spec.rb
 
-    # spec/acceptance/frankfurt-workshop_spec.rb
+    # spec/acceptance/testing-workshop_spec.rb
 
 Tests with docker:
 
