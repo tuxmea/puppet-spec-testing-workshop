@@ -1,4 +1,4 @@
-class frankfurt-workshop (
+class testing-workshop (
   $validate => false,
 ){
   package { 'less'
