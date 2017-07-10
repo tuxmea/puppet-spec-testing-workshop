@@ -1,10 +1,10 @@
 require 'spec_helper_acceptance'
 
-describe 'frankfurt-workshop' do
+describe 'testing-workshop' do
   describe 'without parameters' do
     it 'should idempotently run' do
       pp = <<-EOS
-        include frankfurt-workshop
+        include testing_workshop
       EOS
 
       apply_manifest(pp, :catch_failures => true)
