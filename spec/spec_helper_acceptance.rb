@@ -2,7 +2,7 @@ require 'beaker-rspec'
 
 hosts.each do |host|
   # Install Puppet
-  install_puppet
+  install_puppet_agent_on(host)
 end
 
 RSpec.configure do |c|
@@ -17,7 +17,7 @@ RSpec.configure do |c|
 
     hosts.each do |host|
       # Install module
-      copy_module_to(host, :source => proj_root, :module_name => 'frankfurt-workshop', :target_module_path => '/etc/puppetlabs/code/modules')
+      copy_module_to(host, :source => proj_root, :module_name => 'testing_workshop', :target_module_path => '/etc/puppetlabs/code/modules')
 
       # Install dependencies
       on host, puppet('module','install','puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
